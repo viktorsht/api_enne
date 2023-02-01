@@ -2,13 +2,15 @@
 
 namespace App\Services;
 use App\Connection\Connection;
-use App\Models\Day;
+use App\Models\Time;
 
-class DayService
+
+
+class TimeService
 {
     public function get(){
 
-        $result = Day::getDay();
+        $result = Time::getTime();
 
         return $result;
     }

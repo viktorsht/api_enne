@@ -3,11 +3,11 @@
 namespace App\Models;
 use App\Connection;
 
-class Day{
+class Holiday{
 
-    public function getDay(){
+    public function getHoliday(){
         $conn = Connection::getDb();
-        $query = 'SELECT id,name,initials FROM day';
+        $query = 'SELECT id,name,date,permanent,fk_employee AS employee, fk_city AS city FROM holiday';
         $stmt = $conn->prepare($query);
         $stmt->execute();
 

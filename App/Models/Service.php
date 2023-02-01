@@ -3,14 +3,14 @@
 namespace App\Models;
 use App\Connection;
 
-class Day{
+class Service{
 
-    public function getDay(){
+    public function getService(){
         $conn = Connection::getDb();
-        $query = 'SELECT id,name,initials FROM day';
+        $query = 'SELECT id, name, duration FROM service';
         $stmt = $conn->prepare($query);
         $stmt->execute();
-
+        //echo "oi";
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         if(!is_array($result) ) throw new \Exception("Nenhum usuário encontrado!");
 

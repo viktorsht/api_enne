@@ -2,13 +2,13 @@
 
 namespace App\Services;
 use App\Connection\Connection;
-use App\Models\Day;
+use App\Models\Service;
 
-class DayService
+class ServiceService
 {
     public function get(){
 
-        $result = Day::getDay();
+        $result = Service::getService();
 
         return $result;
     }

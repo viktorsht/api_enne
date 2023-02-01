@@ -1,14 +1,17 @@
 <?php
 
 namespace App\Services;
+#use App\Models\User;
 use App\Connection\Connection;
-use App\Models\Day;
+use App\Models\UserLevel;
 
-class DayService
+
+
+class UserLevelService
 {
     public function get(){
 
-        $result = Day::getDay();
+        $result  = UserLevel::getUserLevel();
 
         return $result;
     }

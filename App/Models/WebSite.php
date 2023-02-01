@@ -3,11 +3,11 @@
 namespace App\Models;
 use App\Connection;
 
-class Day{
+class WebSite{
 
-    public function getDay(){
+    public function getWebSite(){
         $conn = Connection::getDb();
-        $query = 'SELECT id,name,initials FROM day';
+        $query = 'SELECT id,name,description, email, phone, created FROM website';
         $stmt = $conn->prepare($query);
         $stmt->execute();
 
