@@ -12,4 +12,9 @@ class HolidayService
 
         return $result;
     }
+    public function post(){
+        $data = $_POST;
+
+        return Holiday::postHoliday($data);
+    }
 }

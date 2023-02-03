@@ -14,8 +14,6 @@ class RegisterUser
         $stmt->bindValue(':e', $data['email']);
         $stmt->bindValue(':cpf', $data['cpf']);
         $stmt->bindValue(':pass', md5($data['password']) );
-        #$stmt->bindValue(':cr', $data['created']);
-        #$stmt->bindValue(':mod', $data['modified']);
         $stmt->bindValue(':fkle', $data['fk_level']);
         $stmt->bindValue(':fkadd', 1);
         $stmt->bindValue(':fksocial', 1);
