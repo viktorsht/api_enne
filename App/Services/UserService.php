@@ -11,15 +11,16 @@ class UserService
 {
     public function get($id=null){
 
-        $result = $id == null ? User::getAll()  : User::getUser($id);
+        $result = $id == null ? User::getAllUser()  : User::getUser($id);
 
         return $result;
     }
-
+/*
     public function login(){
         echo "login";
     }
 
+    */
     public function post(){
         $data = $_POST;
 

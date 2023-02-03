@@ -3,21 +3,17 @@
 namespace App\Services;
 #use App\Models\User;
 use App\Connection\Connection;
-use App\Models\Login;
+use App\Models\RegisterUser;
 
 
 
-class LoginService
+class RegisterUserService
 {
-    public function get(){
-
-    }
 
     public function post(){
         $data = $_POST;
 
-        return Login::login($data);
-
+        return RegisterUser::insert($data);
     }
     public function update(){
         
