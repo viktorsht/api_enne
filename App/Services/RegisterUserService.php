@@ -16,7 +16,9 @@ class RegisterUserService
         return RegisterUser::insert($data);
     }
     public function update(){
-        
+        $data = $_POST;
+
+        return RegisterUser::updateUser($data);
     }
     public function delete(){
         
