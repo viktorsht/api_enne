@@ -8,7 +8,7 @@ class User{
     public function getUser(int $id){
         $conn = Connection::getDb();
 
-        $query = "SELECT email,password,name FROM user WHERE id = :id";
+        $query = "SELECT name,surname,email,cpf,password FROM user WHERE id = :id";
         $stmt = $conn->prepare($query);
         $stmt->bindValue(':id', $id);
         $stmt->execute();
