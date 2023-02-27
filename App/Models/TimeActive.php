@@ -28,7 +28,7 @@ class TimeActive{
         */
         $stmt->execute();
 
-        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         if(!is_array($result) ) throw new \Exception("Nenhum usuário encontrado!");
 
         return $result;
