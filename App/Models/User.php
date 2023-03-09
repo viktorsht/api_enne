@@ -29,7 +29,6 @@ class User{
 
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         if(!is_array($result) ) throw new \Exception("Nenhum usuário encontrado!");
-        #var_dump($result);
         return $result;
     }
 }

@@ -4,7 +4,7 @@ namespace App\Models;
 use App\Connection;
 
 class Scheduling{
-    public function getScheduling(int $employee){
+    public function getAllScheduling(){
         $conn = Connection::getDb();
         $query = '
         SELECT * FROM scheduling AS s
@@ -13,11 +13,30 @@ class Scheduling{
         ';
         
         $stmt = $conn->prepare($query);
-        $stmt->bindValue(':fk_employee', $employee);
+        //$stmt->bindValue(':fk_employee', $employee);
         $stmt->execute();
         
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        if(!is_array($result) ) throw new \Exception("Nenhum usuário encontrado!");
+        if(!is_array($result) ) throw new \Exception("Nenhum agendamento encontrado!");
+
+        return $result;
+    }
+
+    public function getScheduling(int $id){
+        $conn = Connection::getDb();
+        $query = '
+        SELECT * FROM scheduling AS s 
+        INNER JOIN user AS u ON (s.fk_client = u.id)
+        WHERE s.fk_client = :id
+        ';
+        
+        $stmt = $conn->prepare($query);
+        //$stmt->bindValue(':fk_employee', $employee);
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+        
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        if(!is_array($result) || empty($result)) throw new \Exception("Nenhum agendamento encontrado!");
 
         return $result;
     }
@@ -37,7 +56,7 @@ class Scheduling{
         $stmt->bindValue(':fk_employee', 2);
         $stmt->bindValue(':fk_city', 1);
         
-        $result = $stmt->execute() ? 'Cadastro realizado com sucesso!' : 'Falha no cadastro!';
+        $result = $stmt->execute() ? 'Agendamento realizado com sucesso!' : 'Falha no agendamento!';
         return $result;
     }
 

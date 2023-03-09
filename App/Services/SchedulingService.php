@@ -6,11 +6,12 @@ use App\Models\Scheduling;
 
 class SchedulingService
 {
-    public function get(){
-        $employee = isset($_GET['employee']) ? intval($_GET['employee']) : 2;
+    public function get($id=null){
+        //$employee = isset($_GET['employee']) ? intval($_GET['employee']) : 2;
         #$city = isset($_GET['city']) ? intval($_GET['city']) : 1;
         #$day = isset($_GET['day']) ? intval($_GET['day']) : 0; // obrigado a passar o dia
-        $result = Scheduling::getScheduling($employee);
+        //$result = Scheduling::getAllScheduling($employee);
+        $result = $id == null ? Scheduling::getAllScheduling() : Scheduling::getScheduling($id);
 
         return $result;
     }
