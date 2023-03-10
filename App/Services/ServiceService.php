@@ -6,10 +6,9 @@ use App\Models\Service;
 
 class ServiceService
 {
-    public function get(){
+    public function get(int $id=null){
 
-        $result = Service::getService();
-
+        $result = $id == null ? Service::getAllService() : Service::getService($id);
         return $result;
     }
 }

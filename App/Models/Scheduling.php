@@ -6,11 +6,18 @@ use App\Connection;
 class Scheduling{
     public function getAllScheduling(){
         $conn = Connection::getDb();
+        /*
         $query = '
         SELECT * FROM scheduling AS s
         INNER JOIN user AS u ON (s.fk_client = u.id)
         WHERE s.fk_employee = 2
         ';
+        */
+        $query = 'SELECT s.id AS scheduling_id, s.*, u.*
+        FROM scheduling AS s
+        INNER JOIN user AS u ON (s.fk_client = u.id)
+        WHERE s.fk_employee = 2;
+        ';        
         
         $stmt = $conn->prepare($query);
         //$stmt->bindValue(':fk_employee', $employee);
@@ -24,11 +31,17 @@ class Scheduling{
 
     public function getScheduling(int $id){
         $conn = Connection::getDb();
+        /*
         $query = '
         SELECT * FROM scheduling AS s 
         INNER JOIN user AS u ON (s.fk_client = u.id)
         WHERE s.fk_client = :id
         ';
+        */
+        $query = 'SELECT s.id AS scheduling_id, s.*, u.*
+        FROM scheduling AS s
+        INNER JOIN user AS u ON (s.fk_client = u.id)
+        WHERE s.fk_client = :id';
         
         $stmt = $conn->prepare($query);
         //$stmt->bindValue(':fk_employee', $employee);
