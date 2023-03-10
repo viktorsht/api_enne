@@ -9,21 +9,13 @@ class DeleteScheduling{
 
         $conn = Connection::getDb();
         
-        $query = 'DELETE FROM scheduling WHERE fk_client=:fk_client AND start=:start';
+        $query = 'DELETE FROM scheduling WHERE id=:scheduling_id';
 
         $stmt = $conn->prepare($query);
-        /*
-        $stmt->bindValue(':end', $data['end']);
-        $stmt->bindValue(':fk_service', $data['fk_service']);
-        */
-        $stmt->bindValue(':start', $data['start']);
-        $stmt->bindValue(':fk_client', $data['fk_client']);
+        $stmt->bindValue(':scheduling_id', $data['scheduling_id']);
         
-        $result = $stmt->execute() ? 'Atualização de agendamento realizado com sucesso!' : 'Falha no cadastro!';
+        $result = $stmt->execute() ? 'Remoção de agendamento realizada com sucesso!' : 'Falha na remoção do agendamento!';
         return $result;
     }
 
 }
-
-
-//DELETE FROM `scheduling` WHERE `scheduling`.`id` = 1 
