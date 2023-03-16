@@ -23,7 +23,7 @@ class ServiceActive{
         $stmt->execute();
         
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        if(!is_array($result) ) throw new \Exception("Nenhum usuário encontrado!");
+        if(!is_array($result) ) throw new \Exception("Nenhum serviço encontrado!");
 
         return $result;
     }

@@ -15,4 +15,9 @@ class TimeActiveService
 
         return $result;
     }
+    public function post(){
+        $data = $_POST;
+
+        return TimeActive::updateTimeActive($data);
+    }
 }

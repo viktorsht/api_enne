@@ -11,4 +11,9 @@ class ServiceService
         $result = $id == null ? Service::getAllService() : Service::getService($id);
         return $result;
     }
+    public function post(){
+        $data = $_POST;
+
+        return Service::postService($data);
+    }
 }
